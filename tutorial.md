@@ -2,8 +2,6 @@
 
 ## Introduction @unplugged
 
-![Cartoon of the game at work](http://steamblender.com/wp-content/uploads/2020/09/week1gameSmall.gif)
-
 We're going to build a game to see how many times we can click the 'A' button before time's up!
 
 ## Step 1 @fullscreen
