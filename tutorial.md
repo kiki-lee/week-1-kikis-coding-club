@@ -2,35 +2,41 @@
 
 ## Introduction @unplugged
 
-![Cartoon of the Rock Paper Scissors game](/static/mb/projects/a4-motion.png)
+![Cartoon of the game at work](http://steamblender.com/wp-content/uploads/2020/09/week1gameSmall.gif)
 
-We're going to build a game to see how many times we can click the circle before time's up!
+We're going to build a game to see how many times we can click the 'A' button before time's up!
 
 ## Step 1 @fullscreen
 
-Add a ``||input:on shake||`` block to run code when you shake the @boardname@.
+Add a ``||info.startCountdown(10)||`` block to the onStart block to begin the countdown as soon as the game loads.
 
 ```blocks
-input.onGesture(Gesture.Shake, () => {
+
+info.startCountdown(10)
 
 })
 ```
 
 ## Step 2 @fullscreen
 
-Add a ``hand`` variable and place the ``||variables:set hand to||`` block in the shake event.
+Now add a block to sense when the 'A' button is pushed.
 
-![A animation that shows how to create a variable](/static/mb/projects/rock-paper-scissors/newvar.gif)
-
-## Step 3 @fullscreen
-
-Add a ``||math:pick random||`` block to pick a random number from `1` to `3` and store it in the variable named ``hand``.
 
 ```blocks
-let hand = 0;
-input.onGesture(Gesture.Shake, () => {
-    hand = randint(1, 3)
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    
 })
 ```
 
-In a later step, each of the possible numbers (`1`, `2`, or `3`) is matched to its own picture. The picture is shown on the LEDs when its matching number is picked.
+## Step 3 @fullscreen
+
+Finally, add a ``||info.changeScoreBy(1)||`` block to the event block to change the score by 1 each time the 'A' button is pushed.
+
+```blocks
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    info.changeScoreBy(1)
+})
+```
+
+That's it! 
+Now you're ready to run the program on the emulator to the left.
